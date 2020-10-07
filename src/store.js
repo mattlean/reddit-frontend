@@ -1,7 +1,8 @@
 import { applyMiddleware, createStore } from 'redux'
+import { composeWithDevTools } from 'redux-devtools-extension'
 import thunk from 'redux-thunk'
-import todoApp from './reducers'
+import reducers from './reducers'
 
-const store = createStore(todoApp, applyMiddleware(thunk))
+const store = createStore(reducers, composeWithDevTools(applyMiddleware(thunk)))
 
 export default store
