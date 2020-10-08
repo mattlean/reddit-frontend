@@ -1,11 +1,13 @@
 import { combineReducers } from 'redux'
 import err from './err'
-import reddit from './reddit'
+import subreddit from './subreddit'
+import topPosts from './topPosts'
 import todos from './todos'
 
 const todoApp = combineReducers({
   err,
-  reddit,
+  subreddit,
+  topPosts,
   todos,
 })
 

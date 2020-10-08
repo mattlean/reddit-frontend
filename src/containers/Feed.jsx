@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 const Feed = () => {
   const [searchField, setSearchField] = useState('')
   const errMessage = useSelector((state) => state.err)
-  const result = useSelector((state) => state.reddit)
+  const topPosts = useSelector((state) => state.topPosts)
   const dispatch = useDispatch()
 
   const searchHandler = (e) => {
@@ -25,7 +25,15 @@ const Feed = () => {
         />
         <button onClick={searchHandler}>Add</button>
       </form>
-      <ul></ul>
+      <ul>
+        {topPosts.map((p) => (
+          <li key={p.id}>
+            <h1>{p.title}</h1>
+            <p>{`r/${p.subreddit}`}</p>
+            <p>{p.score}</p>
+          </li>
+        ))}
+      </ul>
     </>
   )
 }

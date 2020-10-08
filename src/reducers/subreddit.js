@@ -1,6 +1,6 @@
 import { ADD_SUBREDDIT } from '../actions/types'
 
-const reddit = (state = [], action) => {
+const subreddit = (state = [], action) => {
   let newState
   switch (action.type) {
     case ADD_SUBREDDIT:
@@ -16,4 +16,4 @@ const reddit = (state = [], action) => {
   }
 }
 
-export default reddit
+export default subreddit
