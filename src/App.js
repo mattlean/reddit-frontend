@@ -2,7 +2,6 @@ import React, { useEffect } from 'react'
 import Feed from './containers/Feed'
 import SearchField from './containers/SearchField'
 import SpaceSnoo from './assets/space-snoo.png'
-import './App.css'
 import store from './store'
 
 function App() {
