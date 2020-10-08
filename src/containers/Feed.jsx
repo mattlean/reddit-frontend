@@ -2,6 +2,9 @@ import React from 'react'
 import { fetchAPI, setErr, updateSearchField } from '../actions'
 import { useDispatch, useSelector } from 'react-redux'
 
+/**
+ * Feed of top subreddit posts
+ */
 const Feed = () => {
   const searchField = useSelector((state) => state.searchField)
   const errMessage = useSelector((state) => state.err)
@@ -37,11 +40,6 @@ const Feed = () => {
 
   return (
     <>
-      <h1>Top subreddit Post Tracker</h1>
-      <p>
-        Get the current top post from a subreddit. Keep track of up to 10
-        subreddits. No reddit account necessary!
-      </p>
       {errMessage}
       <form>
         <input

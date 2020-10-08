@@ -2,7 +2,13 @@ import { ADD_TOP_POST, ADD_SUBREDDIT } from './types'
 import { setErr } from '../actions'
 import store from '../store'
 
-export const addSubreddit = ({ name, data }) => ({
+/**
+ * Add subreddit response data
+ * @param {string} name subreddit name from search field
+ * @param {Object} data subreddit response data
+ * @return {Object} ADD_SUBREDDIT action
+ */
+export const addSubreddit = (name, data) => ({
   type: ADD_SUBREDDIT,
   name,
   data,
@@ -13,6 +19,7 @@ export const addSubreddit = ({ name, data }) => ({
  * Remove existing top post if it's from the same subreddit.
  * @param {Object} data Post data from reddit API
  * @param {Object} postToRemove Data for post to remove
+ * @return {Object} ADD_TOP_POST action
  */
 export const addTopPost = (data, postToRemove) => ({
   type: ADD_TOP_POST,
@@ -24,6 +31,7 @@ export const addTopPost = (data, postToRemove) => ({
  * Fetch subreddit data from reddit API.
  * Handle asynchronous call with redux-thunk.
  * @param {string} subreddit subreddit ID
+ * @return {Function} Thunk that performs fetch request to reddit API
  */
 export const fetchAPI = (subreddit) => (dispatch) => {
   fetch(`https://www.reddit.com/r/${subreddit}.json?jsonp=foo`)
@@ -39,7 +47,7 @@ export const fetchAPI = (subreddit) => (dispatch) => {
         const subredditData = JSON.parse(text.replace(regExp, ''))
 
         // DEBUG: Store API res data for debugging purposes
-        // dispatch(addSubreddit({ name: subreddit, data: subredditData }))
+        dispatch(addSubreddit(subreddit, subredditData))
 
         // Throw err if there are no posts
         if (subredditData.data.children < 1) {

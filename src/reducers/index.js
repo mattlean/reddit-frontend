@@ -3,14 +3,12 @@ import err from './err'
 import searchField from './searchField'
 import subreddit from './subreddit'
 import topPosts from './topPosts'
-import todos from './todos'
 
-const todoApp = combineReducers({
+const rootReducer = combineReducers({
   err,
   searchField,
   subreddit,
   topPosts,
-  todos,
 })
 
-export default todoApp
+export default rootReducer

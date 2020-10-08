@@ -5,7 +5,7 @@ const initialState = ''
 const searchField = (state = initialState, action) => {
   switch (action.type) {
     case ADD_TOP_POST:
-      return initialState
+      return initialState // Reset search field when successful top post was added
     case UPDATE_SEARCH_FIELD:
       return action.input
     default:
