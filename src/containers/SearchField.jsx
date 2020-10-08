@@ -1,15 +1,28 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useDispatch, useSelector } from 'react-redux'
-import variants from '../variants'
+import { errVariants } from '../variants'
 import { fetchAPI, setErr, setFetch, updateSearchField } from '../actions'
+import { usePrevVal } from '../hooks'
 
 const SearchField = () => {
   const errMessage = useSelector((state) => state.err)
   const fetchState = useSelector((state) => state.fetchState)
   const inputText = useSelector((state) => state.searchField)
+  const inputRef = useRef(null)
   const numPosts = useSelector((state) => state.topPosts.age.length)
+  const prevErrMessage = usePrevVal(errMessage)
   const dispatch = useDispatch()
+
+  useEffect(() => {
+    // Focus on search field first on page load
+    if (inputRef.current) inputRef.current.focus()
+  }, [])
+
+  if (inputRef.current && prevErrMessage === '' && errMessage) {
+    // Focus search field input again if a new err occurs
+    inputRef.current.focus()
+  }
 
   const searchHandler = (e) => {
     e.preventDefault()
@@ -25,7 +38,7 @@ const SearchField = () => {
         animate="visible"
         exit="hidden"
         initial="hidden"
-        variants={variants}
+        variants={errVariants}
         className="bg-red-100 border border-red-600 mt-4 py-2 px-4 rounded text-red-600"
       >
         {errMessage}
@@ -49,6 +62,7 @@ const SearchField = () => {
     <>
       <form className="flex">
         <input
+          ref={inputRef}
           type="text"
           disabled={fetchState}
           placeholder={placeholderTxt}

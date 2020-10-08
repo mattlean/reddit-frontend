@@ -1,8 +1,7 @@
 import React from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence } from 'framer-motion'
 import { useSelector } from 'react-redux'
-import variants from '../variants'
-import upvote from '../assets/aupmod.gif'
+import TopPost from '../components/TopPost'
 
 /**
  * Feed of top subreddit posts
@@ -16,25 +15,7 @@ const Feed = () => {
       <ul className="mt-16">
         <AnimatePresence>
           {feed.map((p) => (
-            <motion.li
-              key={p.id}
-              animate="visible"
-              exit="hidden"
-              initial="hidden"
-              variants={variants}
-              className="bg-white hover:bg-indigo-200 mb-4 py-2 px-4 rounded transition-colors"
-            >
-              <a href={p.link} rel="noopener noreferrer" target="_blank">
-                <h1 className="font-bold text-lg">{p.title}</h1>
-                <div className="flex flex-row justify-between">
-                  <p className="mt-2 text-gray-700">{`r/${p.subreddit}`}</p>
-                  <p className="flex flex-row items-center mt-2">
-                    <img src={upvote} alt="upvote" className="h-4 mr-1" />
-                    <span className="font-bold text-orange-500">{p.score}</span>
-                  </p>
-                </div>
-              </a>
-            </motion.li>
+            <TopPost key={p.id} data={p} />
           ))}
         </AnimatePresence>
       </ul>

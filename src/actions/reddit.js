@@ -87,13 +87,12 @@ export const fetchAPI = (subreddit) => (dispatch) => {
           }
         }
 
+        dispatch(setFetch(false))
         if (postAlreadyExists) {
           dispatch(setErr('The new top post already exists in the feed.'))
         } else {
           dispatch(addTopPost(topPost, postToRemove))
         }
-
-        dispatch(setFetch(false))
       } else {
         throw new Error(
           'Invalid response format from reddit API or no subreddit was found.'
@@ -101,7 +100,7 @@ export const fetchAPI = (subreddit) => (dispatch) => {
       }
     })
     .catch((err) => {
-      dispatch(setErr(err.message))
       dispatch(setFetch(false))
+      dispatch(setErr(err.message))
     })
 }
