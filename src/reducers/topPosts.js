@@ -30,7 +30,7 @@ const topPosts = (state = { age: [], feed: [] }, action) => {
         score: action.data.data.score,
         subreddit: action.data.data.subreddit,
         title: action.data.data.title,
-        link: `https://reddit.com/${action.data.data.permalink}`,
+        link: `https://reddit.com${action.data.data.permalink}`,
       })
 
       newFeed.sort((a, b) => {

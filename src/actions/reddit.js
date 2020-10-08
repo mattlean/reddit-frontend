@@ -47,7 +47,7 @@ export const fetchAPI = (subreddit) => (dispatch) => {
         const subredditData = JSON.parse(text.replace(regExp, ''))
 
         // DEBUG: Store API res data for debugging purposes
-        dispatch(addSubreddit(subreddit, subredditData))
+        // dispatch(addSubreddit(subreddit, subredditData))
 
         // Throw err if there are no posts
         if (subredditData.data.children < 1) {
