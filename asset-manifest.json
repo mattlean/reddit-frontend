@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/reddit-frontend/static/css/main.4bd07259.chunk.css",
+    "main.js": "/reddit-frontend/static/js/main.65a6628f.chunk.js",
+    "main.js.map": "/reddit-frontend/static/js/main.65a6628f.chunk.js.map",
+    "runtime-main.js": "/reddit-frontend/static/js/runtime-main.b5b6b25d.js",
+    "runtime-main.js.map": "/reddit-frontend/static/js/runtime-main.b5b6b25d.js.map",
+    "static/js/2.fc67a037.chunk.js": "/reddit-frontend/static/js/2.fc67a037.chunk.js",
+    "static/js/2.fc67a037.chunk.js.map": "/reddit-frontend/static/js/2.fc67a037.chunk.js.map",
+    "index.html": "/reddit-frontend/index.html",
+    "precache-manifest.1f085b37e804092591fee20d19aa4870.js": "/reddit-frontend/precache-manifest.1f085b37e804092591fee20d19aa4870.js",
+    "service-worker.js": "/reddit-frontend/service-worker.js",
+    "static/css/main.4bd07259.chunk.css.map": "/reddit-frontend/static/css/main.4bd07259.chunk.css.map",
+    "static/js/2.fc67a037.chunk.js.LICENSE.txt": "/reddit-frontend/static/js/2.fc67a037.chunk.js.LICENSE.txt",
+    "static/media/space-snoo.png": "/reddit-frontend/static/media/space-snoo.0f9fec70.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b5b6b25d.js",
+    "static/js/2.fc67a037.chunk.js",
+    "static/css/main.4bd07259.chunk.css",
+    "static/js/main.65a6628f.chunk.js"
+  ]
+}
