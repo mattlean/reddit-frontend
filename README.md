@@ -8,13 +8,17 @@ It was built using [React](https://reactjs.org), [Redux](https://redux.js.org), 
 
 ## Trying It Out
 
-You can clone the repository and simply run the [`package.json`](./package.json) start script:
+You can clone the repository and run the [`package.json`](./package.json) start script:
 
 `yarn start` or `npm start`
 
 You can also simply visit the GitHub page here: https://mattlean.github.io/reddit-frontend
 
 Typing in a subreddit name into the search field and hitting the "Add Post" button will send a request for the recent top posts in that subreddit. The app will then attempt to find the most recent top post that isn't pinned. If it cannot find a post that isn't pinned, it will simply return the top pinned post. If it cannot find any post, it will return an error.
+
+The top posts will always be sorted by highest score first.
+
+If you add a new top post, but you have already reached the max capacity of 10 posts, the oldest post will be replaced.
 
 The app will periodically save your progress in local storage so your posts can persist across sessions.
 
