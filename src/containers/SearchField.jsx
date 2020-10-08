@@ -5,13 +5,16 @@ import { errVariants } from '../variants'
 import { fetchAPI, setErr, setFetch, updateSearchField } from '../actions'
 import { usePrevVal } from '../hooks'
 
+/**
+ * Search field and button
+ */
 const SearchField = () => {
   const errMessage = useSelector((state) => state.err)
   const fetchState = useSelector((state) => state.fetchState)
   const inputText = useSelector((state) => state.searchField)
   const inputRef = useRef(null)
   const numPosts = useSelector((state) => state.topPosts.age.length)
-  const prevErrMessage = usePrevVal(errMessage)
+  const prevFetchState = usePrevVal(fetchState)
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -19,10 +22,12 @@ const SearchField = () => {
     if (inputRef.current) inputRef.current.focus()
   }, [])
 
-  if (inputRef.current && prevErrMessage === '' && errMessage) {
-    // Focus search field input again if a new err occurs
-    inputRef.current.focus()
-  }
+  useEffect(() => {
+    if (inputRef.current && prevFetchState && !fetchState) {
+      // Focus search field input again if a new err occurs
+      inputRef.current.focus()
+    }
+  }, [fetchState])
 
   const searchHandler = (e) => {
     e.preventDefault()

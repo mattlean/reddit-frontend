@@ -1,3 +1,4 @@
+/* CUSTOM HOOKS */
 import { useEffect, useRef } from 'react'
 
 export const usePrevVal = (val) => {

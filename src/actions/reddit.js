@@ -51,7 +51,7 @@ export const fetchAPI = (subreddit) => (dispatch) => {
 
         // Throw err if there are no posts
         if (subredditData.data.children < 1) {
-          throw new Error('Subreddit has no posts.')
+          throw new Error('This subreddit has no posts.')
         }
 
         // Find top post in data (filter through stickied)
@@ -87,12 +87,12 @@ export const fetchAPI = (subreddit) => (dispatch) => {
           }
         }
 
-        dispatch(setFetch(false))
         if (postAlreadyExists) {
           dispatch(setErr('The new top post already exists in the feed.'))
         } else {
           dispatch(addTopPost(topPost, postToRemove))
         }
+        dispatch(setFetch(false))
       } else {
         throw new Error(
           'Invalid response format from reddit API or no subreddit was found.'
@@ -100,7 +100,7 @@ export const fetchAPI = (subreddit) => (dispatch) => {
       }
     })
     .catch((err) => {
-      dispatch(setFetch(false))
       dispatch(setErr(err.message))
+      dispatch(setFetch(false))
     })
 }
