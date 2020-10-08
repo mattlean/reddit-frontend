@@ -1,5 +1,5 @@
 import { ADD_TOP_POST, ADD_SUBREDDIT } from './types'
-import { setErr } from '../actions'
+import { setErr, setFetch } from '../actions'
 import store from '../store'
 
 /**
@@ -92,11 +92,16 @@ export const fetchAPI = (subreddit) => (dispatch) => {
         } else {
           dispatch(addTopPost(topPost, postToRemove))
         }
+
+        dispatch(setFetch(false))
       } else {
         throw new Error(
           'Invalid response format from reddit API or no subreddit was found.'
         )
       }
     })
-    .catch((err) => dispatch(setErr(err.message)))
+    .catch((err) => {
+      dispatch(setErr(err.message))
+      dispatch(setFetch(false))
+    })
 }

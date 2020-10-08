@@ -8,9 +8,18 @@ import store from './store'
 function App() {
   useEffect(() => {
     // Store latest Redux state in local storage to persist sessions
-    const unsubscribe = store.subscribe(() =>
-      localStorage.setItem('redux', JSON.stringify(store.getState()))
-    )
+    const unsubscribe = store.subscribe(() => {
+      const s = store.getState()
+      localStorage.setItem(
+        'redux',
+        JSON.stringify({
+          ...s,
+          err: '',
+          fetchState: false,
+          searchField: '',
+        })
+      )
+    })
     return () => unsubscribe()
   }, [])
 
