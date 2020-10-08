@@ -1,16 +1,16 @@
-import React, { useState } from 'react'
-import { fetchAPI, setErr } from '../actions'
+import React from 'react'
+import { fetchAPI, setErr, updateSearchField } from '../actions'
 import { useDispatch, useSelector } from 'react-redux'
 
 const Feed = () => {
-  const [searchField, setSearchField] = useState('')
+  const searchField = useSelector((state) => state.searchField)
   const errMessage = useSelector((state) => state.err)
   const feed = useSelector((state) => state.topPosts.feed)
   const dispatch = useDispatch()
 
   const searchHandler = (e) => {
     e.preventDefault()
-    dispatch(setErr())
+    if (errMessage) dispatch(setErr())
     dispatch(fetchAPI(searchField))
   }
 
@@ -47,7 +47,7 @@ const Feed = () => {
         <input
           type="text"
           value={searchField}
-          onChange={(e) => setSearchField(e.target.value)}
+          onChange={(e) => dispatch(updateSearchField(e.target.value))}
         />
         <button onClick={searchHandler}>Add</button>
       </form>

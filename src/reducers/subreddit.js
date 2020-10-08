@@ -1,10 +1,9 @@
 import { ADD_SUBREDDIT } from '../actions/types'
 
 const subreddit = (state = [], action) => {
-  let newState
   switch (action.type) {
     case ADD_SUBREDDIT:
-      newState = state.slice()
+      const newState = state.slice()
       newState.push({
         name: action.name,
         data: action.data,
