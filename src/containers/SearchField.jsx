@@ -65,7 +65,7 @@ const SearchField = () => {
 
   return (
     <>
-      <form className="flex content-evenly">
+      <form className="flex justify-evenly">
         <input
           ref={inputRef}
           type="text"
