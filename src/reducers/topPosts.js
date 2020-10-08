@@ -1,31 +1,49 @@
 import { ADD_TOP_POST } from '../actions/types'
 
-const topPosts = (state = [], action) => {
-  let newState
+const topPosts = (state = { age: [], feed: [] }, action) => {
   switch (action.type) {
     case ADD_TOP_POST:
-      newState = state.slice()
+      const newFeed = state.feed.slice()
+      const newAge = state.age.slice()
 
-      if (
-        typeof action.indexToRemove === 'number' &&
-        action.indexToRemove > -1
-      ) {
+      if (action.postToRemove) {
         // Remove top post to be replaced in feed
-        newState.splice(action.indexToRemove, 1)
+        newFeed.splice(action.postToRemove.id, 1)
+
+        // Remove top post to be replaced from age
+        const newAgeIndex = newAge.findIndex(action.postToRemove.id)
+        if (newAgeIndex > -1) newAge.splice(newAgeIndex, 1)
       }
 
-      newState.push({
+      if (state.age.length > 9) {
+        // Remove the oldest subreddit top post when queue has reached max capacity
+        const removeID = newAge.pop()
+        newFeed.splice(
+          newFeed.findIndex((p) => p.id === removeID),
+          1
+        )
+      }
+
+      // Update feed
+      newFeed.push({
         id: action.data.data.id,
         score: action.data.data.score,
         subreddit: action.data.data.subreddit,
         title: action.data.data.title,
+        link: `https://reddit.com/${action.data.data.permalink}`,
       })
 
-      newState.sort((a, b) => {
+      newFeed.sort((a, b) => {
         return b.score - a.score
       })
 
-      return newState
+      // Update age
+      newAge.unshift(action.data.data.id)
+
+      return {
+        age: newAge,
+        feed: newFeed,
+      }
     default:
       return state
   }

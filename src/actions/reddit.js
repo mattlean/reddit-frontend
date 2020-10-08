@@ -12,12 +12,12 @@ export const addSubreddit = ({ name, data }) => ({
  * Add new top post.
  * Remove existing top post if it's from the same subreddit.
  * @param {Object} data Post data from reddit API
- * @param {string} indexToRemove Post ID
+ * @param {Object} postToRemove Data for post to remove
  */
-export const addTopPost = (data, indexToRemove) => ({
+export const addTopPost = (data, postToRemove) => ({
   type: ADD_TOP_POST,
   data,
-  indexToRemove,
+  postToRemove,
 })
 
 /**
@@ -38,7 +38,8 @@ export const fetchAPI = (subreddit) => (dispatch) => {
       if (match) {
         const subredditData = JSON.parse(text.replace(regExp, ''))
 
-        dispatch(addSubreddit({ name: subreddit, data: subredditData }))
+        // DEBUG: Store API res data for debugging purposes
+        // dispatch(addSubreddit({ name: subreddit, data: subredditData }))
 
         // Throw err if there are no posts
         if (subredditData.data.children < 1) {
@@ -62,16 +63,17 @@ export const fetchAPI = (subreddit) => (dispatch) => {
 
         // Find if post from this subreddit already exists
         let postAlreadyExists = false
-        let indexToRemove
+        let postToRemove
         const { topPosts } = store.getState()
-        for (let i = 0; i < topPosts.length; i += 1) {
-          const p = topPosts[i]
+        const { feed } = topPosts
+        for (let i = 0; i < feed.length; i += 1) {
+          const p = feed[i]
           if (p.subreddit === topPost.data.subreddit) {
             // Find out if the new post is the different than the current post
             if (p.id === topPost.data.id) {
               postAlreadyExists = true
             } else {
-              indexToRemove = i
+              postToRemove = { i, id: p.id }
             }
             break
           }
@@ -80,7 +82,7 @@ export const fetchAPI = (subreddit) => (dispatch) => {
         if (postAlreadyExists) {
           dispatch(setErr('The new top post already exists in the feed.'))
         } else {
-          dispatch(addTopPost(topPost, indexToRemove))
+          dispatch(addTopPost(topPost, postToRemove))
         }
       } else {
         throw new Error(
