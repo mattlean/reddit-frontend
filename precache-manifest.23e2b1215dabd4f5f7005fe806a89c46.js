@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "7e892f8dfb34f56d7ee750bc73d676d5",
+    "revision": "9157d412f14ed89214f2c9b27e77884f",
     "url": "/reddit-frontend/index.html"
   },
   {
-    "revision": "a7cdcc8b3e37341f3c3c",
-    "url": "/reddit-frontend/static/css/main.4bd07259.chunk.css"
+    "revision": "a4953eae0d8c79240dcc",
+    "url": "/reddit-frontend/static/css/main.25d9fa93.chunk.css"
   },
   {
-    "revision": "95471139584950cddb13",
-    "url": "/reddit-frontend/static/js/2.fc67a037.chunk.js"
+    "revision": "a053976c09c3d2196d1a",
+    "url": "/reddit-frontend/static/js/2.cceb1203.chunk.js"
   },
   {
     "revision": "216e537bacc64f9dbaabd26649a9ab95",
-    "url": "/reddit-frontend/static/js/2.fc67a037.chunk.js.LICENSE.txt"
+    "url": "/reddit-frontend/static/js/2.cceb1203.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "a7cdcc8b3e37341f3c3c",
-    "url": "/reddit-frontend/static/js/main.3d3272ff.chunk.js"
+    "revision": "a4953eae0d8c79240dcc",
+    "url": "/reddit-frontend/static/js/main.c9abdff0.chunk.js"
   },
   {
     "revision": "9967b84022482bee85a4",

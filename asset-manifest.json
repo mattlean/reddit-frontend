@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/reddit-frontend/static/css/main.4bd07259.chunk.css",
-    "main.js": "/reddit-frontend/static/js/main.3d3272ff.chunk.js",
-    "main.js.map": "/reddit-frontend/static/js/main.3d3272ff.chunk.js.map",
+    "main.css": "/reddit-frontend/static/css/main.25d9fa93.chunk.css",
+    "main.js": "/reddit-frontend/static/js/main.c9abdff0.chunk.js",
+    "main.js.map": "/reddit-frontend/static/js/main.c9abdff0.chunk.js.map",
     "runtime-main.js": "/reddit-frontend/static/js/runtime-main.b5b6b25d.js",
     "runtime-main.js.map": "/reddit-frontend/static/js/runtime-main.b5b6b25d.js.map",
-    "static/js/2.fc67a037.chunk.js": "/reddit-frontend/static/js/2.fc67a037.chunk.js",
-    "static/js/2.fc67a037.chunk.js.map": "/reddit-frontend/static/js/2.fc67a037.chunk.js.map",
+    "static/js/2.cceb1203.chunk.js": "/reddit-frontend/static/js/2.cceb1203.chunk.js",
+    "static/js/2.cceb1203.chunk.js.map": "/reddit-frontend/static/js/2.cceb1203.chunk.js.map",
     "index.html": "/reddit-frontend/index.html",
-    "precache-manifest.e187dd53e2f9b930cf142bc5b5cbae8b.js": "/reddit-frontend/precache-manifest.e187dd53e2f9b930cf142bc5b5cbae8b.js",
+    "precache-manifest.23e2b1215dabd4f5f7005fe806a89c46.js": "/reddit-frontend/precache-manifest.23e2b1215dabd4f5f7005fe806a89c46.js",
     "service-worker.js": "/reddit-frontend/service-worker.js",
-    "static/css/main.4bd07259.chunk.css.map": "/reddit-frontend/static/css/main.4bd07259.chunk.css.map",
-    "static/js/2.fc67a037.chunk.js.LICENSE.txt": "/reddit-frontend/static/js/2.fc67a037.chunk.js.LICENSE.txt",
+    "static/css/main.25d9fa93.chunk.css.map": "/reddit-frontend/static/css/main.25d9fa93.chunk.css.map",
+    "static/js/2.cceb1203.chunk.js.LICENSE.txt": "/reddit-frontend/static/js/2.cceb1203.chunk.js.LICENSE.txt",
     "static/media/space-snoo.png": "/reddit-frontend/static/media/space-snoo.0f9fec70.png"
   },
   "entrypoints": [
     "static/js/runtime-main.b5b6b25d.js",
-    "static/js/2.fc67a037.chunk.js",
-    "static/css/main.4bd07259.chunk.css",
-    "static/js/main.3d3272ff.chunk.js"
+    "static/js/2.cceb1203.chunk.js",
+    "static/css/main.25d9fa93.chunk.css",
+    "static/js/main.c9abdff0.chunk.js"
   ]
 }
