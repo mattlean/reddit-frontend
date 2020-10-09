@@ -11,7 +11,9 @@ const topPosts = (state = { age: [], feed: [] }, action) => {
         newFeed.splice(action.postToRemove.id, 1)
 
         // Remove top post to be replaced from age
-        const newAgeIndex = newAge.findIndex(action.postToRemove.id)
+        const newAgeIndex = newAge.findIndex(
+          (id) => id === action.postToRemove.id
+        )
         if (newAgeIndex > -1) newAge.splice(newAgeIndex, 1)
       }
 
